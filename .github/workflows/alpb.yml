@@ -13,10 +13,10 @@ jobs:
       uses: 2m/arch-pkgbuild-builder@v1.5
       with:
         target: 'pkgbuild'
-#        pkgname: 'jdk8-adoptopenjdk-openj9'
+        pkgname: 'jdk8-adoptopenjdk-openj9'
     - name: Validate SRCINFO
       id: validate-srcinfo
       uses: 2m/arch-pkgbuild-builder@v1.5
       with:
         target: 'srcinfo'
-#        pkgname: 'jdk8-adoptopenjdk-openj9'
+        pkgname: 'jdk8-adoptopenjdk-openj9'
