@@ -1,4 +1,5 @@
 # Maintainer: sousuke0422 <sousuke20xx@gmail.com>
+
 # java-11-adoptopenjdk in aur
 # Michael Lass <bevan@bi-co.net>
 
@@ -48,32 +49,31 @@ provides=("java-runtime-headless=${_java_ver}"
           "jdk-openjdk=${pkgver}"
           "openjdk${_java_ver}-src=${pkgver}"
           "openjdk-src=${pkgver}")
-backup=(etc/${pkgname}/net.properties
-        etc/${pkgname}/logging.properties
-        etc/${pkgname}/security/java.security
-        etc/${pkgname}/security/policy/limited/exempt_local.policy
-        etc/${pkgname}/security/policy/limited/default_US_export.policy
-        etc/${pkgname}/security/policy/limited/default_local.policy
-        etc/${pkgname}/security/policy/unlimited/default_US_export.policy
-        etc/${pkgname}/security/policy/unlimited/default_local.policy
-        etc/${pkgname}/security/policy/README.txt
-        etc/${pkgname}/security/java.policy
-        etc/${pkgname}/management/management.properties
-        etc/${pkgname}/management/jmxremote.access
-        etc/${pkgname}/management/jmxremote.password.template
-        etc/${pkgname}/sound.properties)
-install=install_jdk11-adoptopenjdk.sh
-#https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242-b08_openj9-0.18.1.tar.gz
+backup=(etc/${pkgname}/jre/lib/net.properties
+        etc/${pkgname}/jre/lib/logging.properties
+        etc/${pkgname}/jre/lib/security/java.security
+        etc/${pkgname}/jre/lib/security/policy/limited/exempt_local.policy
+        etc/${pkgname}/jre/lib/security/policy/limited/default_US_export.policy
+        etc/${pkgname}/jre/lib/security/policy/limited/default_local.policy
+        etc/${pkgname}/jre/lib/security/policy/unlimited/default_US_export.policy
+        etc/${pkgname}/jre/lib/security/unlimited/default_local.policy
+        etc/${pkgname}/jre/lib/security/policy/README.txt
+        etc/${pkgname}/jre/lib/security/java.policy
+        etc/${pkgname}/jre/lib/management/management.properties
+        etc/${pkgname}/jre/lib/management/jmxremote.access
+        etc/${pkgname}/jre/lib/management/jmxremote.password.template
+        etc/${pkgname}/jre/lib/sound.properties)
+install=install_jdk8-adoptopenjdk-openj9.sh
 #https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz
 source=(https://github.com/AdoptOpenJDK/openjdk${_java_ver}-binaries/releases/download/jdk${_tag_ver}/OpenJDK${_java_ver}U-jdk_x64_linux_openj9_${_tar_ver}.tar.gz
         freedesktop-java.desktop
         freedesktop-jconsole.desktop)
-sha256sums=('330d19a2eaa07ed02757d7a785a77bab49f5ee710ea03b4ee2fa220ddd0feffc'
-            '734aab5e8fca5360fd996142a0c0ff23434da56f83c21b26cfbcbf31556230eb'
-            '53b7da18785675438d1d7cfa776be419a313c11049c48f791c7426224fe51025')
+sha256sums=('ca785af638b24f9d4df896f5a9f557cc9f1e5fa5e2b1174d6b906e3fd5474c2e'
+            '5792a4850b547d0caf0f8ecfb4b1639c1147586d65902269d0af1c1207198c6e'
+            '248a8ccb26e9d6dba93258308e3122bc322a126df0413307ccdcea0d545b9a79')
 
-_jvmdir=/usr/lib/jvm/java-${_java_ver}-adoptopenjdk
-_jdkdir=jdk-${_tag_ver}
+_jvmdir=/usr/lib/jvm/java-${_java_ver}-adoptopenjdk-openj9
+_jdkdir=jdk${_java_ver}u${_jdk_update}-b${_jdk_build}
 
 package() {
 
@@ -83,14 +83,14 @@ package() {
   cd "${pkgdir}${_jvmdir}"
 
   # Conf
-  install -dm 755 "${pkgdir}/etc"
-  mv conf "${pkgdir}/etc/${pkgname}"
-  ln -sf /etc/${pkgname} conf
+#  install -dm 755 "${pkgdir}/etc"
+#  mv conf "${pkgdir}/etc/${pkgname}"
+#  ln -sf /etc/${pkgname} conf
 
   # Legal
-  install -dm 755 "${pkgdir}/usr/share/licenses"
-  mv legal "${pkgdir}/usr/share/licenses/${pkgname}"
-  ln -sf /usr/share/licenses/${pkgname} legal
+#  install -dm 755 "${pkgdir}/usr/share/licenses"
+#  mv legal "${pkgdir}/usr/share/licenses/${pkgname}"
+#  ln -sf /usr/share/licenses/${pkgname} legal
 
   # Man pages
   for f in man/man1/* man/ja/man1/* man/ja_JP.UTF-8/man1/*; do
@@ -100,11 +100,11 @@ package() {
   ln -sf /usr/share/man man
 
   # Link JKS keystore from ca-certificates-utils
-  rm -f lib/security/cacerts
-  ln -sf /etc/ssl/certs/java/cacerts lib/security/cacerts
+  rm -f jre/lib/security/cacerts
+  ln -sf /etc/ssl/certs/java/cacerts jre/lib/security/cacerts
 
   # Desktop files
-  for f in jconsole java jshell; do
+  for f in jconsole java; do
     install -Dm 644 \
       "${srcdir}/freedesktop-${f}.desktop" \
       "${pkgdir}/usr/share/applications/${f}-${pkgname}.desktop"
