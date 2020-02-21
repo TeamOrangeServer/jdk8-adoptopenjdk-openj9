@@ -26,8 +26,8 @@ pkgver=${_java_ver}.u${_jdk_update}.b${_jdk_build}.openj9
 _tag_ver=${_java_ver}u${_jdk_update}-b${_jdk_build}_openj9-${_openj9}
 _tar_ver=${_java_ver}u${_jdk_update}b${_jdk_build}_openj9-${_openj9}
 
-pkgname=jdk8-adoptopenjdk-openj9
-pkgdesc="OpenJDK Java ${_java_ver} development kit (AdoptOpenJDK build)"
+pkgname=jdk8-adoptopenjdk-openj9-xl
+pkgdesc="OpenJDK Java ${_java_ver} development kit (AdoptOpenJDK XL build)"
 arch=('x86_64')
 url='https://adoptopenjdk.net/'
 license=('custom')
@@ -64,11 +64,11 @@ backup=(etc/${pkgname}/jre/lib/net.properties
         etc/${pkgname}/jre/lib/management/jmxremote.password.template
         etc/${pkgname}/jre/lib/sound.properties)
 install=install_jdk8-adoptopenjdk-openj9.sh
-#https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz
-source=(https://github.com/AdoptOpenJDK/openjdk${_java_ver}-binaries/releases/download/jdk${_tag_ver}/OpenJDK${_java_ver}U-jdk_x64_linux_openj9_${_tar_ver}.tar.gz
+#https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_linuxXL_8u242b08_openj9-0.18.1.tar.gz
+source=(https://github.com/AdoptOpenJDK/openjdk${_java_ver}-binaries/releases/download/jdk${_tag_ver}/OpenJDK${_java_ver}U-jdk_x64_linux_openj9_linuxXL_${_tar_ver}.tar.gz
         freedesktop-java.desktop
         freedesktop-jconsole.desktop)
-sha256sums=('ca785af638b24f9d4df896f5a9f557cc9f1e5fa5e2b1174d6b906e3fd5474c2e'
+sha256sums=('6ee788d57f15cc8c326bb3468390d5e353cc1aac1925efa3f2992a93e2520d97'
             '5792a4850b547d0caf0f8ecfb4b1639c1147586d65902269d0af1c1207198c6e'
             '248a8ccb26e9d6dba93258308e3122bc322a126df0413307ccdcea0d545b9a79')
 
@@ -94,7 +94,7 @@ package() {
 
   # Man pages
   for f in man/man1/* man/ja/man1/* man/ja_JP.UTF-8/man1/*; do
-    install -Dm 644 "${f}" "${pkgdir}/usr/share/${f/\.1/-adoptopenjdk-openj9${_java_ver}.1}"
+    install -Dm 644 "${f}" "${pkgdir}/usr/share/${f/\.1/-adoptopenjdk-openj9-xl${_java_ver}.1}"
   done
   rm -rf man
   ln -sf /usr/share/man man

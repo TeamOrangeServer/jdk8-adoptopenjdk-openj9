@@ -1,5 +1,5 @@
-pkgbase = jdk8-adoptopenjdk-openj9
-	pkgdesc = OpenJDK Java 8 development kit (AdoptOpenJDK build)
+pkgbase = jdk8-adoptopenjdk-openj9-xl
+	pkgdesc = OpenJDK Java 8 development kit (AdoptOpenJDK XL build)
 	pkgver = 8.u242.b08.openj9
 	pkgrel = 1
 	url = https://adoptopenjdk.net/
@@ -28,26 +28,26 @@ pkgbase = jdk8-adoptopenjdk-openj9
 	provides = jdk-openjdk=8.u242.b08.openj9
 	provides = openjdk8-src=8.u242.b08.openj9
 	provides = openjdk-src=8.u242.b08.openj9
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/net.properties
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/logging.properties
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/java.security
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/policy/limited/exempt_local.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/policy/limited/default_US_export.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/policy/limited/default_local.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/policy/unlimited/default_US_export.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/unlimited/default_local.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/policy/README.txt
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/security/java.policy
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/management/management.properties
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/management/jmxremote.access
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/management/jmxremote.password.template
-	backup = etc/jdk8-adoptopenjdk-openj9/jre/lib/sound.properties
-	source = https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/net.properties
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/logging.properties
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/java.security
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/policy/limited/exempt_local.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/policy/limited/default_US_export.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/policy/limited/default_local.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/policy/unlimited/default_US_export.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/unlimited/default_local.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/policy/README.txt
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/security/java.policy
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/management/management.properties
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/management/jmxremote.access
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/management/jmxremote.password.template
+	backup = etc/jdk8-adoptopenjdk-openj9-xl/jre/lib/sound.properties
+	source = https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_linuxXL_8u242b08_openj9-0.18.1.tar.gz
 	source = freedesktop-java.desktop
 	source = freedesktop-jconsole.desktop
-	sha256sums = ca785af638b24f9d4df896f5a9f557cc9f1e5fa5e2b1174d6b906e3fd5474c2e
+	sha256sums = 6ee788d57f15cc8c326bb3468390d5e353cc1aac1925efa3f2992a93e2520d97
 	sha256sums = 5792a4850b547d0caf0f8ecfb4b1639c1147586d65902269d0af1c1207198c6e
 	sha256sums = 248a8ccb26e9d6dba93258308e3122bc322a126df0413307ccdcea0d545b9a79
 
-pkgname = jdk8-adoptopenjdk-openj9
+pkgname = jdk8-adoptopenjdk-openj9-xl
 

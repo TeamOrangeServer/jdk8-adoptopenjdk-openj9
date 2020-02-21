@@ -1,4 +1,4 @@
-THIS_JDK='java-8-adoptopenjdk-openj9'
+THIS_JDK='java-8-adoptopenjdk-openj9-xl'
 
 fix_default() {
   if [ ! -x /usr/bin/java ]; then
