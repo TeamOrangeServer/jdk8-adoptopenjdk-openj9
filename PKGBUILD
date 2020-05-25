@@ -18,9 +18,9 @@
 #pkgver=${_majorver}.${_minorver}.${_securityver}.u${_updatever}
 #_tag_ver=${_majorver}.${_minorver}.${_securityver}+${_updatever}
 _java_ver=8
-_jdk_update=242
-_jdk_build=08
-_openj9=0.18.1
+_jdk_update=252
+_jdk_build=09
+_openj9=0.20.0
 pkgrel=1
 pkgver=${_java_ver}.u${_jdk_update}.b${_jdk_build}.openj9
 _tag_ver=${_java_ver}u${_jdk_update}-b${_jdk_build}_openj9-${_openj9}
@@ -68,7 +68,7 @@ install=install_jdk8-adoptopenjdk-openj9.sh
 source=(https://github.com/AdoptOpenJDK/openjdk${_java_ver}-binaries/releases/download/jdk${_tag_ver}/OpenJDK${_java_ver}U-jdk_x64_linux_openj9_${_tar_ver}.tar.gz
         freedesktop-java.desktop
         freedesktop-jconsole.desktop)
-sha256sums=('ca785af638b24f9d4df896f5a9f557cc9f1e5fa5e2b1174d6b906e3fd5474c2e'
+sha256sums=('910ae847109a6dd1b6cf69baa7615ea2cce8cff787e5a9349a5331ce7604f3a5'
             '5792a4850b547d0caf0f8ecfb4b1639c1147586d65902269d0af1c1207198c6e'
             '248a8ccb26e9d6dba93258308e3122bc322a126df0413307ccdcea0d545b9a79')
 
